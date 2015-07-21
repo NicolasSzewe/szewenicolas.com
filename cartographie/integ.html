@@ -1,0 +1,38 @@
+<html>
+  <head>
+      	<meta charset="utf-8" />	
+	<script src="sigma.min.js"></script>
+	<script src="sigma.parseGexf.js"></script>
+      	<link rel="stylesheet" href="parisjs.css">
+      	<script type="text/javascript">
+	window.onload= function(){
+	var sigInst = sigma.init(document.getElementById('container')).
+	graphProperties({
+        minNodeSize: 0.5,
+        maxNodeSize: 5
+  	})
+	.drawingProperties({
+    defaultLabelColor: '#fff',
+    defaultLabelSize: 25,
+    defaultLabelBGColor: '#fff',
+    defaultLabelHoverColor: '#000',
+    labelThreshold: 4,
+    defaultEdgeType: 'curve'
+  }).graphProperties({
+    minNodeSize: 0.5,
+    maxNodeSize: 5,
+    minEdgeSize: 1,
+    maxEdgeSize: 1
+  }).mouseProperties({
+    maxRatio: 32
+  });;
+	sigInst.parseGexf('integ.gexf');sigInst.draw();
+
+	}
+	</script>
+  </head>
+   <body>
+      <div id="container"></div>
+<li><a href="menu.html">Retour au menu</a></li>
+   </body>
+</html>
