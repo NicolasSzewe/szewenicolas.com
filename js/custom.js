@@ -53,10 +53,19 @@
 		});
 	});
 	
-	$('#percentage').text = "pourcentage";
-	
+	//Lock scroll when loading page
+	$('html, body').css({
+    'overflow': 'hidden',
+    'height': '100%'
+	});
+
+	//Unlock scroll and remove loading bar
 	$(window).load(function() {
-	$(".loader-wrap").fadeOut("slow");
+		$(".loader-wrap").fadeOut("slow");
+		$('html, body').css({
+    	'overflow': 'auto',
+    	'height': 'auto'
+		});
 	})
 	
 	$('.testimonialslide').flexslider({
