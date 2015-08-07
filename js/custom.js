@@ -53,6 +53,9 @@
 		});
 	});
 
+	$(window).load(function() {
+	$(".loader-wrap").fadeOut("slow");
+	})
 	
 	$('.testimonialslide').flexslider({
 	animation: "slide",
