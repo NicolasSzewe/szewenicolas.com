@@ -53,6 +53,8 @@
 		});
 	});
 	
+
+            
 	//Lock scroll when loading page
 	$('html, body').css({
     'overflow': 'hidden',
