@@ -588,11 +588,7 @@ SNAKE.Board = SNAKE.Board || (function() {
             elmPauseScreen = document.createElement("div");
             elmPauseScreen.className = "snake-pause-screen";
             elmPauseScreen.innerHTML = "<div style='padding:10px;'>[Paused]<p/>Press [space] to unpause.</div>";
-            
-            elmAboutPanel = document.createElement("div");
-            elmAboutPanel.className = "snake-panel-component";
-            elmAboutPanel.innerHTML = "<a href='http://patorjk.com/blog/software/' class='snake-link'>more patorjk.com apps</a> - <a href='https://github.com/patorjk/JavaScript-Snake' class='snake-link'>source code</a>";
-            
+                        
             elmLengthPanel = document.createElement("div");
             elmLengthPanel.className = "snake-panel-component";
             elmLengthPanel.innerHTML = "Length: 1";
@@ -613,7 +609,6 @@ SNAKE.Board = SNAKE.Board || (function() {
             elmPauseScreen.style.zIndex = 10000;
             elmContainer.appendChild(elmPauseScreen);
             elmContainer.appendChild(elmPlayingField);
-            elmContainer.appendChild(elmAboutPanel);
             elmContainer.appendChild(elmLengthPanel);
             elmContainer.appendChild(elmWelcome);
             elmContainer.appendChild(elmTryAgain);
@@ -637,10 +632,7 @@ SNAKE.Board = SNAKE.Board || (function() {
             
             var welcomeTxt = document.createElement("div");
             var fullScreenText = "";
-            if (config.fullScreen) {
-                fullScreenText = "On Windows, press F11 to play in Full Screen mode.";   
-            }
-            welcomeTxt.innerHTML = "JavaScript Snake<p></p>Use the <strong>arrow keys</strong> on your keyboard to play the game. " + fullScreenText + "<p></p>";
+            welcomeTxt.innerHTML = "If you want to play snake, click on the button below";
             var welcomeStart = document.createElement("button");
             welcomeStart.appendChild( document.createTextNode("Play Game"));
             
