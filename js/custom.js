@@ -52,7 +52,9 @@
 			event.preventDefault();
 		});
 	});
-
+	
+	$('#percentage').text = "pourcentage";
+	
 	$(window).load(function() {
 	$(".loader-wrap").fadeOut("slow");
 	})
