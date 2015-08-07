@@ -50,10 +50,10 @@ a.snake-link:hover {
 }
 
 .snake-snakebody-alive {
-   background-image: url('./img/snakeblock.png');
+   background-image: url('../img/snakeblock.png');
 }
 .snake-snakebody-dead {
-   background-image: url('./img/deadblock.png');
+   background-image: url('../img/deadblock.png');
 }
 
 .snake-food-block {
@@ -94,7 +94,7 @@ a.snake-link:hover {
     left: 50%;
     width: 300px;
     /*height: 150px;*/
-    margin-top: -100px;
+    margin-top: -180px;
     margin-left: -158px;
     text-align: center;
     display: block;
@@ -112,7 +112,7 @@ a.snake-link:hover {
     left: 50%;
     width: 300px;
     height: 100px;
-    margin-top: -75px;
+    margin-top: -180px;
     margin-left: -158px;
     text-align: center;
     display: none;

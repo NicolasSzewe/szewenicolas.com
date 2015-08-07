@@ -8,6 +8,8 @@ var SNAKE = SNAKE || {};
 * @param {Boolean} evtCapturing True to do event capturing, false to do event bubbling.
 */
 
+SnakeState = 0 ;
+
 SNAKE.addEventListener = (function() {
     if (window.addEventListener) {
         return function(obj, event, funct, evtCapturing) {
@@ -567,7 +569,7 @@ SNAKE.Board = SNAKE.Board || (function() {
             myKeyListener,
             isPaused = false,//note: both the board and the snake can be paused
             // Board components
-            elmContainer, elmPlayingField, elmAboutPanel, elmLengthPanel, elmWelcome, elmTryAgain, elmPauseScreen;
+            elmContainer, elmPlayingField, elmLengthPanel, elmWelcome, elmTryAgain, elmPauseScreen;
         
         // --- public variables ---
         me.grid = [];
@@ -639,6 +641,13 @@ SNAKE.Board = SNAKE.Board || (function() {
             var loadGame = function() {
                 SNAKE.removeEventListener(window, "keyup", kbShortcut, false);
                 tmpElm.style.display = "none";
+                
+                var quitTxt = document.createElement("div");
+                quitTxt.style.color = "yellow";
+            	quitTxt.innerHTML = "While the website ready, press q to access it";
+            	elmContainer.appendChild(quitTxt);
+            	
+                SnakeState  = 1;
                 me.setBoardState(1);
                 me.getBoardContainer().focus();
             };
@@ -664,13 +673,14 @@ SNAKE.Board = SNAKE.Board || (function() {
             tmpElm.className = "snake-try-again-dialog";
             
             var tryAgainTxt = document.createElement("div");
-            tryAgainTxt.innerHTML = "JavaScript Snake<p></p>You died :(.<p></p>";
+            tryAgainTxt.innerHTML = "You died :(";
             var tryAgainStart = document.createElement("button");
             tryAgainStart.appendChild( document.createTextNode("Play Again?"));
             
             var reloadGame = function() {
                 tmpElm.style.display = "none";
                 me.resetBoard();
+                SnakeState = 1;
                 me.setBoardState(1);
                 me.getBoardContainer().focus();
             };
@@ -826,19 +836,11 @@ SNAKE.Board = SNAKE.Board || (function() {
             var bottomPanelHeight = hEdgeSpace - me.getBlockHeight();
             var pLabelTop = me.getBlockHeight() + fHeight + Math.round((bottomPanelHeight - 30)/2) + "px";
             
-            elmAboutPanel.style.top = pLabelTop;
-            elmAboutPanel.style.width = "450px";
-            elmAboutPanel.style.left = Math.round(cWidth/2) - Math.round(450/2) + "px";
             
             elmLengthPanel.style.top = pLabelTop;
             elmLengthPanel.style.left = cWidth - 120 + "px";
             
-            // if width is too narrow, hide the about panel
-            if (cWidth < 700) {
-                elmAboutPanel.style.display = "none";
-            } else {
-                elmAboutPanel.style.display = "block";
-            }
+
             
             me.grid = [];
             var numBoardCols = fWidth / me.getBlockWidth() + 2;

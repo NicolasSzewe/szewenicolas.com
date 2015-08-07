@@ -60,14 +60,31 @@
     'overflow': 'hidden',
     'height': '100%'
 	});
+	
+
 
 	//Unlock scroll and remove loading bar
 	$(window).load(function() {
-		$(".loader-wrap").fadeOut("slow");
-		$('html, body').css({
-    	'overflow': 'auto',
-    	'height': 'auto'
-		});
+		if(SnakeState==0){
+			$(".loader-wrap").fadeOut("slow");
+			$('html, body').css({
+    			'overflow': 'auto',
+    			'height': 'auto'
+			});
+		}
+		else {
+			document.getElementById("percentage-loading").innerHTML = "The Website is Ready !";
+			$(".snake-game-container").keydown(function(e) {
+				code = e.which;
+				if(code == "81"){
+					$(".loader-wrap").fadeOut("slow");
+					$('html, body').css({
+    					'overflow': 'auto',
+    					'height': 'auto'
+					});
+				}
+			});	
+		}
 	})
 	
 	$('.testimonialslide').flexslider({
