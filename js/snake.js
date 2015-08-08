@@ -642,6 +642,7 @@ SNAKE.Board = SNAKE.Board || (function() {
                 SNAKE.removeEventListener(window, "keyup", kbShortcut, false);
                 tmpElm.style.display = "none";
                 
+                ga("send","event","Snake","Play");
                 var quitTxt = document.createElement("div");
                 quitTxt.style.color = "yellow";
             	quitTxt.innerHTML = "When the website ready, press q to access it";
@@ -679,6 +680,7 @@ SNAKE.Board = SNAKE.Board || (function() {
             
             var reloadGame = function() {
                 tmpElm.style.display = "none";
+                ga("send","event","Snake","Play Again");
                 me.resetBoard();
                 SnakeState = 1;
                 me.setBoardState(1);
