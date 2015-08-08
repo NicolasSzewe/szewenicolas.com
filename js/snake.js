@@ -644,7 +644,7 @@ SNAKE.Board = SNAKE.Board || (function() {
                 
                 var quitTxt = document.createElement("div");
                 quitTxt.style.color = "yellow";
-            	quitTxt.innerHTML = "While the website ready, press q to access it";
+            	quitTxt.innerHTML = "When the website ready, press q to access it";
             	elmContainer.appendChild(quitTxt);
             	
                 SnakeState  = 1;
