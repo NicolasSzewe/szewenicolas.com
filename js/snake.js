@@ -663,8 +663,14 @@ SNAKE.Board = SNAKE.Board || (function() {
             SNAKE.addEventListener(window, "keyup", kbShortcut, false);
             SNAKE.addEventListener(welcomeStart, "click", loadGame, false);
             
-            tmpElm.appendChild(welcomeTxt);
-            tmpElm.appendChild(welcomeStart);
+            
+			if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        		//do nothing
+            }
+            else {
+            	tmpElm.appendChild(welcomeTxt);
+            	tmpElm.appendChild(welcomeStart);
+            }
             return tmpElm;
         }
         
