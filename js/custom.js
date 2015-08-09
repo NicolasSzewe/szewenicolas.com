@@ -117,8 +117,10 @@ $(document).bind('scroll',function(e){
     document.getElementById(domelementA).style.display = 'block';
     document.getElementById(domelementB).style.display = 'none';
 	}
-		
-	$(document).ready(function() {
+			
+})(jQuery);
+
+$(document).ready(function() {
 	//Project pop up apparition
 	$('#bouttonWeb').bind('click', function() {
 		popupapparition('detailWeb', 'pageSchool');
@@ -153,6 +155,3 @@ $(document).bind('scroll',function(e){
 	});
 	
 	});
-	
-	
-})(jQuery);
