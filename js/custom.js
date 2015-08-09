@@ -1,19 +1,3 @@
-$(document).bind('scroll',function(e){
-    $('section').each(function(){
-        if (
-           $(this).offset().top < window.pageYOffset + 10
-        && $(this).offset().top + $(this).height() > window.pageYOffset + 10
-        )
-         {
-         	if(window.location.hash!="#" + $(this).attr('id')){
-         		console.log($(this).attr('id'));
-            	window.location.hash = $(this).attr('id');
-            }
-        }
-    });
-});
-
-
 /*global jQuery:false */
 (function ($) {
 
