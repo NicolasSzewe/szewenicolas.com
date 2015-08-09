@@ -1,4 +1,7 @@
-$(document).bind('scroll',function(e){
+/*global jQuery:false */
+(function ($) {
+
+	$(document).bind('scroll',function(e){
     $('section').each(function(){
         if (
            $(this).offset().top < window.pageYOffset + 10
@@ -7,15 +10,33 @@ $(document).bind('scroll',function(e){
             window.location.hash = $(this).attr('id');
         }
     });
-});
+	});
 
-/*global jQuery:false */
-(function ($) {
+	//Unlock scroll and remove loading bar
+	$(window).load(function() {
+		$("#navigation").sticky({ topSpacing: 0 });
+		if(SnakeState==0){
+			$(".loader-wrap").fadeOut("slow");
+			$('html, body').css({
+    			'overflow': 'auto',
+    			'height': 'auto'
+			});
+		}
+		else {
+			document.getElementById("percentage-loading").innerHTML = "The Website is Ready !";
+			$(".snake-game-container").keydown(function(e) {
+				code = e.which;
+				if(code == "81"){
+					$(".loader-wrap").fadeOut("slow");
+					$('html, body').css({
+    					'overflow': 'auto',
+    					'height': 'auto'
+					});
+				}
+			});	
+		}
+	})
 
-
-	$(window).load(function(){
-      $("#navigation").sticky({ topSpacing: 0 });
-    });
 	
 
 	wow = new WOW(
@@ -72,31 +93,6 @@ $(document).bind('scroll',function(e){
     'height': '100%'
 	});
 	
-
-
-	//Unlock scroll and remove loading bar
-	window.onload = function() { 
-		if(SnakeState==0){
-			$(".loader-wrap").fadeOut("slow");
-			$('html, body').css({
-    			'overflow': 'auto',
-    			'height': 'auto'
-			});
-		}
-		else {
-			document.getElementById("percentage-loading").innerHTML = "The Website is Ready !";
-			$(".snake-game-container").keydown(function(e) {
-				code = e.which;
-				if(code == "81"){
-					$(".loader-wrap").fadeOut("slow");
-					$('html, body').css({
-    					'overflow': 'auto',
-    					'height': 'auto'
-					});
-				}
-			});	
-		}
-	}
 	
 	$('.testimonialslide').flexslider({
 	animation: "slide",
