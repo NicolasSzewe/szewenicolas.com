@@ -145,6 +145,13 @@ $(document).bind('scroll',function(e){
 		popupapparition('pageSchool', 'detailPartner');
 	});
 	
+	$('#bouttonShwet').bind('click', function() {
+		popupapparition('detailShwet', 'pageSchool');
+	});
+	$('#boutonCloseShwet').bind('click', function() {
+		popupapparition('pageSchool', 'detailShwet');
+	});
+	
 	});
 	
 	
