@@ -75,7 +75,7 @@ $(document).bind('scroll',function(e){
 
 
 	//Unlock scroll and remove loading bar
-	$(window).load(function() {
+	window.onload = function() { 
 		if(SnakeState==0){
 			$(".loader-wrap").fadeOut("slow");
 			$('html, body').css({
@@ -96,7 +96,7 @@ $(document).bind('scroll',function(e){
 				}
 			});	
 		}
-	})
+	}
 	
 	$('.testimonialslide').flexslider({
 	animation: "slide",
@@ -117,10 +117,8 @@ $(document).bind('scroll',function(e){
     document.getElementById(domelementA).style.display = 'block';
     document.getElementById(domelementB).style.display = 'none';
 	}
-			
-})(jQuery);
-
-$(document).ready(function() {
+		
+	$(document).ready(function() {
 	//Project pop up apparition
 	$('#bouttonWeb').bind('click', function() {
 		popupapparition('detailWeb', 'pageSchool');
@@ -155,3 +153,6 @@ $(document).ready(function() {
 	});
 	
 	});
+	
+	
+})(jQuery);
