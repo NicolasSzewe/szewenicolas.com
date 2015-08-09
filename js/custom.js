@@ -1,80 +1,26 @@
-
-
-	popupapparition = function(domelementA, domelementB) {
-    document.getElementById(domelementA).style.display = 'block';
-    document.getElementById(domelementB).style.display = 'none';
-	}
-	
-	$(document).bind('scroll',function(e){
+$(document).bind('scroll',function(e){
     $('section').each(function(){
         if (
            $(this).offset().top < window.pageYOffset + 10
         && $(this).offset().top + $(this).height() > window.pageYOffset + 10
-        ) {
-            window.location.hash = $(this).attr('id');
+        )
+         {
+         	if(window.location.hash!="#" + $(this).attr('id')){
+         		console.log($(this).attr('id'));
+            	window.location.hash = $(this).attr('id');
+            }
         }
     });
-	});
+});
 
-	//Unlock scroll and remove loading bar
-	window.onload = function() {
-		$("#navigation").sticky({ topSpacing: 0 });
-		if(SnakeState==0){
-			$(".loader-wrap").fadeOut("slow");
-			$('html, body').css({
-    			'overflow': 'auto',
-    			'height': 'auto'
-			});
-		}
-		else {
-			document.getElementById("percentage-loading").innerHTML = "The Website is Ready !";
-			$(".snake-game-container").keydown(function(e) {
-				code = e.which;
-				if(code == "81"){
-					$(".loader-wrap").fadeOut("slow");
-					$('html, body').css({
-    					'overflow': 'auto',
-    					'height': 'auto'
-					});
-				}
-			});	
-		}
-		
-			//Project pop up apparition
-	$('#bouttonWeb').bind('click', function() {
-		popupapparition('detailWeb', 'pageSchool');
-	});
-	$('#boutonCloseWeb').bind('click', function() {
-		popupapparition('pageSchool', 'detailWeb');
-	});
-	$('#boutonViz').bind('click', function() {
-		popupapparition('detailViz', 'pageSchool');
-	});
-	$('#boutonCloseViz').bind('click', function() {
-		popupapparition('pageSchool', 'detailViz');
-	});
-	$('#bouttonOrientation').bind('click', function() {
-		popupapparition('detailOrientation', 'pageSchool');
-	});
-	$('#boutonCloseOrientation').bind('click', function() {
-		popupapparition('pageSchool', 'detailOrientation');
-	});
-	$('#bouttonPartner').bind('click', function() {
-		popupapparition('detailPartner', 'pageSchool');
-	});
-	$('#boutonClosePartner').bind('click', function() {
-		popupapparition('pageSchool', 'detailPartner');
-	});
-	
-	$('#bouttonShwet').bind('click', function() {
-		popupapparition('detailShwet', 'pageSchool');
-	});
-	$('#boutonCloseShwet').bind('click', function() {
-		popupapparition('pageSchool', 'detailShwet');
-	});
-	};
 
-	
+/*global jQuery:false */
+(function ($) {
+
+
+	$(window).load(function(){
+      $("#navigation").sticky({ topSpacing: 0 });
+    });
 
 	wow = new WOW(
       {
@@ -130,6 +76,31 @@
     'height': '100%'
 	});
 	
+
+
+	//Unlock scroll and remove loading bar
+	$(window).load(function() {
+		if(SnakeState==0){
+			$(".loader-wrap").fadeOut("slow");
+			$('html, body').css({
+    			'overflow': 'auto',
+    			'height': 'auto'
+			});
+		}
+		else {
+			document.getElementById("percentage-loading").innerHTML = "The Website is Ready !";
+			$(".snake-game-container").keydown(function(e) {
+				code = e.which;
+				if(code == "81"){
+					$(".loader-wrap").fadeOut("slow");
+					$('html, body').css({
+    					'overflow': 'auto',
+    					'height': 'auto'
+					});
+				}
+			});	
+		}
+	})
 	
 	$('.testimonialslide').flexslider({
 	animation: "slide",
@@ -146,3 +117,46 @@
 			jQuery(".nav a[href='#" + id + "']").parent().addClass("active");					
 		});
 		
+	popupapparition = function(domelementA, domelementB) {
+    document.getElementById(domelementA).style.display = 'block';
+    document.getElementById(domelementB).style.display = 'none';
+	}
+		
+	$(document).ready(function() {
+	//Project pop up apparition
+	$('#bouttonWeb').bind('click', function() {
+		popupapparition('detailWeb', 'pageSchool');
+	});
+	$('#boutonCloseWeb').bind('click', function() {
+		popupapparition('pageSchool', 'detailWeb');
+	});
+	$('#boutonViz').bind('click', function() {
+		popupapparition('detailViz', 'pageSchool');
+	});
+	$('#boutonCloseViz').bind('click', function() {
+		popupapparition('pageSchool', 'detailViz');
+	});
+	$('#bouttonOrientation').bind('click', function() {
+		popupapparition('detailOrientation', 'pageSchool');
+	});
+	$('#boutonCloseOrientation').bind('click', function() {
+		popupapparition('pageSchool', 'detailOrientation');
+	});
+	$('#bouttonPartner').bind('click', function() {
+		popupapparition('detailPartner', 'pageSchool');
+	});
+	$('#boutonClosePartner').bind('click', function() {
+		popupapparition('pageSchool', 'detailPartner');
+	});
+	
+	$('#bouttonShwet').bind('click', function() {
+		popupapparition('detailShwet', 'pageSchool');
+	});
+	$('#boutonCloseShwet').bind('click', function() {
+		popupapparition('pageSchool', 'detailShwet');
+	});
+	
+	});
+	
+	
+})(jQuery);
