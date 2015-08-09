@@ -18,7 +18,7 @@
 	});
 
 	//Unlock scroll and remove loading bar
-	$(window).load(function() {
+	window.onload = function() {
 		$("#navigation").sticky({ topSpacing: 0 });
 		if(SnakeState==0){
 			$(".loader-wrap").fadeOut("slow");
@@ -73,7 +73,7 @@
 	$('#boutonCloseShwet').bind('click', function() {
 		popupapparition('pageSchool', 'detailShwet');
 	});
-	})
+	};
 
 	
 
