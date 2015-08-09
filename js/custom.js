@@ -1,5 +1,4 @@
-/*global jQuery:false */
-(function ($) {
+
 
 	popupapparition = function(domelementA, domelementB) {
     document.getElementById(domelementA).style.display = 'block';
@@ -147,4 +146,3 @@
 			jQuery(".nav a[href='#" + id + "']").parent().addClass("active");					
 		});
 		
-})(jQuery);
