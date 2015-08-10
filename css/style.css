@@ -220,7 +220,7 @@ blockquote strong {
 .navbar-custom ul.nav li a {
 	font-size: 12px;
 	letter-spacing: 1px;
-    color: #444;
+    color: black;
 	text-transform: uppercase;
 	font-weight: 700;
 }
@@ -1005,7 +1005,7 @@ a.btn:focus{
 		float:none;
 	}
 	.navbar-custom ul.nav li a {
-		color: #eee;
+		color: black;
 	}
 	.navbar-custom ul.nav ul.dropdown-menu li {
 		border-bottom: 1px solid #aaa;
