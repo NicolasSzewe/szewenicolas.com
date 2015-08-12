@@ -140,6 +140,13 @@
 		popupapparition('pageSchool', 'detailShwet');
 	});
 	
+	$('#bouttonADIT').bind('click', function() {
+		popupapparition('detailADIT', 'pageSchool');
+	});
+	$('#boutonCloseADIT').bind('click', function() {
+		popupapparition('pageSchool', 'detailADIT');
+	});
+	
 	});
 	
 	
