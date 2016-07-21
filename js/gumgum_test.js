@@ -7,5 +7,5 @@ var safetyJson = $.ajax({
   	async:false
 	});
 
-console.log(safetyJson.responseText);
+console.log(safetyJson);
 //safetyJson = JSON.parse(safetyJson.responseText);
