@@ -1,5 +1,5 @@
 var client_id = 1234567
-var safetyUrl = "http://10.16.236.188:8000/safety?u=" + document.location + "&cid=" + client_id
+var safetyUrl = "http://54.90.218.71:8000/safety?u=" + document.location + "&cid=" + client_id
 
 var safetyJson = $.ajax({
   	type: 'GET',
